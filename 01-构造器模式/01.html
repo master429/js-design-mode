@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      function Employee(name, age) {
+        this.name = name;
+        this.age = age;
+        this.say = function () {
+          console.log(this.name + "-", this.age);
+        };
+      }
+
+      let employee1 = new Employee("张三", 18);
+      let employee2 = new Employee("李四", 20);
+
+      employee1.say();
+      employee2.say();
+
+      console.log(employee1, employee2);
+    </script>
+  </body>
+</html>
