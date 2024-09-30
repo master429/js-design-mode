@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Navbar {
+        init() {
+          console.log("navbar-init");
+        }
+
+        getData() {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve("navbar-list-item-111");
+            }, 2000);
+          });
+        }
+
+        render() {
+          console.log("navbar-render");
+        }
+      }
+
+      class List {
+        init() {
+          console.log("list-init");
+        }
+
+        getData() {
+          return new Promise((resolve) => {
+            setTimeout(() => {
+              resolve("list-item-222");
+            }, 2000);
+          });
+        }
+
+        render() {
+          console.log("list-render");
+        }
+      }
+
+      class Creator {
+        async startBuild(builder) {
+          await builder.init();
+          await builder.getData();
+          await builder.render();
+        }
+      }
+
+      const op = new Creator();
+      op.startBuild(new Navbar());
+      op.startBuild(new List());
+    </script>
+  </body>
+</html>
